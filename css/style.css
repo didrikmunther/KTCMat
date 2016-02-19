@@ -1,0 +1,13 @@
+/* style.css */
+
+* {
+	font-family: sans-serif;
+}
+
+.dark-link {
+	color: white;
+}
+
+.old-entry {
+	opacity: 0.5;
+}
