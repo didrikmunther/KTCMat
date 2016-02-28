@@ -24,7 +24,7 @@ angular.module('mat')
 		// openLink('https://github.com/Malaxiz/KTCMat');
 
 		$scope.openLink = function(link) {
-			window.open(link, '_system', 'location=yes');
+			window.open(encodeURI(link), '_system', 'location=yes');
 			return false;
 		}
 
