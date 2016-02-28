@@ -26,13 +26,12 @@
   <body ng-app="mat">
 
     <ion-pane ng-controller="MainCtrl">
-      <ion-header-bar class="bar-stable">
-        <a href="https://github.com/Malaxiz/KTCMat" target="_blank">
-          <h1 class="title withSubtitle">
-            KTC Matsedel
-            <span class="isSubtitle">Skapad av Didrik Munther</span>
-          </h1>
-        </a>
+      <ion-header-bar class="bar bar-stable bar-header">
+        <h1 class="title with-subtitle">
+          KTC Matsedel <span style="opacity: 0.5;" ng-class="{'old-version': isOldVersion}">{{version}}</span>
+          <span class="is-subtitle">Skapad av Didrik Munther</span>
+        </h1>
+        <button class="button icon ion-navicon" ng-click="infoPopup();"></button>
       </ion-header-bar>
       <ion-content>
 

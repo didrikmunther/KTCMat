@@ -12,12 +12,37 @@
 	opacity: 0.5;
 }
 
-ion-header-bar h1.withSubtitle {
+.old-version {
+	color: red;
+	text-decoration: line-through;
+}
+
+.old-version-popup {
+	color: red;
+	font-weight: bold;
+}
+
+.current-version-popup {
+	text-decoration: line-through;
+	opacity: 0.3;
+}
+
+ion-list a {
+	text-decoration: none;
+	color: black;
+	opacity: 0.7;
+}
+
+ion-item {
+	cursor: pointer;
+}
+
+ion-header-bar h1.with-subtitle {
     top: -.5rem !important;
     overflow: visible !important;
 }
 
-ion-header-bar span.isSubtitle {
+ion-header-bar span.is-subtitle {
     position: absolute;
     left: 0;
     right: 0;
