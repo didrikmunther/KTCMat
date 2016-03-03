@@ -35,8 +35,8 @@
       </ion-header-bar>
       <ion-content>
 
-        <div class="card" ng-repeat="(weekName, week) in weeks[0]" ng-if="week['Onsdag']">
-          <div class="item item-divider">{{weekName}}</div>
+        <div class="card" ng-repeat="week in weeks[0] | orderByWeek" ng-if="week['Onsdag']">
+          <div class="item item-divider">{{week.weekname}}</div>
           <span class="item item-text-wrap" ng-class="{'item-balanced': week[day].date == todayDate, 'old-entry': isDatePast(week[day].date, todayDate)}" ng-repeat="day in days">
             <div style="font-size: 20px; margin-bottom: -7px;">{{day}}</div>
             <a class="dark-link" ng-class="{'subdued': week[day].date != todayDate}"><br>{{week[day].food1}}<br>{{week[day].food2}}</a>

@@ -100,3 +100,21 @@ angular.module('mat')
 		});
 	}
 )
+.filter('orderByWeek', function(){
+  return function(input, attribute) {
+	if (!angular.isObject(input)) return input;
+
+    var array = [];
+    for(var objectKey in input) {
+    	if(angular.isObject(input[objectKey]) && input[objectKey]['Onsdag']) {
+    		array.push(input[objectKey]);
+    		input[objectKey]['weekname'] = objectKey;
+    	}
+	}
+
+	console.log(array);
+	return array.sort(function(a, b) {
+		return parseInt(a['weekname'].substr(6, 3).slice(0, -1)) - parseInt(b['weekname'].substr(6, 3).slice(0, -1));
+	});
+  }
+});
