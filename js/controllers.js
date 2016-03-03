@@ -2,7 +2,8 @@ angular.module('mat')
 .controller('MainCtrl',
 	function($scope, $firebaseArray, $ionicPopup, $timeout) {
 
-		$scope.version = '1.0';
+		$scope.version = {};
+		$scope.version.number = '1.2';
 		$scope.isOldVersion = false;
 		$scope.realVersion = '';
 
@@ -36,21 +37,7 @@ angular.module('mat')
 		};
 
 		$scope.isDatePast = function(date1, date2) { // if date2 is past date1
-			var y1 = date1.substr(0, 4);
-			var m1 = date1.substr(0, 7).substr(5);
-			var d1 = date1.substr(-2);
-			var y2 = date2.substr(0, 4);
-			var m2 = date2.substr(0, 7).substr(5);
-			var d2 = date2.substr(-2);
-
-			if(y2 < y1) {
-				return false;
-			} else if(m2 < m1) {
-				return false;
-			} else if(d2 < d1 || d2 == d1) {
-				return false;
-			}
-			return true;
+			return (new Date(date1)).getTime() < (new Date(date2)).getTime();
 		};
 
 		$scope.range = function(start, end) {
@@ -92,7 +79,7 @@ angular.module('mat')
 
 		$scope.weeks.$loaded(function() {
 			$scope.realVersion = $scope.weeks[0]['version'];
-			var comparison = $scope.versionCompare($scope.realVersion, $scope.version);
+			var comparison = $scope.versionCompare($scope.realVersion, $scope.version.number);
 			if(comparison == 1) { // There is a newer version
 				console.log('this is an old version');
 				$scope.isOldVersion = true;
