@@ -1,9 +1,9 @@
 angular.module('mat')
 .controller('MainCtrl',
-	function($scope, $firebaseArray, $ionicPopup, $timeout) {
+	function($scope, $firebaseArray, $ionicPopup) {
 
 		$scope.version = {};
-		$scope.version.number = '1.2';
+		$scope.version.number = '1.3';
 		$scope.isOldVersion = false;
 		$scope.realVersion = '';
 
